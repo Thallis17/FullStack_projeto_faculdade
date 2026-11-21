@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.tsbuildinfo
+backend/prisma/*.db
+backend/prisma/*.db-journal
+backend/uploads/*
+!backend/uploads/.gitkeep
+.env
+

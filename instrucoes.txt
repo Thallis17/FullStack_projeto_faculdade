@@ -1,0 +1,186 @@
+Feature: Cadastro de Fornecedor
+
+Como gerente de compras eu quero cadastrar fornecedores no sistema para que possa gerenciar e rastrear todas as informações relevantes sobre os fornecedores com os quais faço negócios.
+
+1º cenário: Cadastrando um novo fornecedor com sucesso
+
+Dado que estou na página de cadastro de fornecedores e não existe um fornecedor com o mesmo CNPJ já cadastrado, quando eu inserir todas as informações válidas do fornecedor e clicar no botão "Cadastrar" então o fornecedor deve ser adicionado ao sistema e uma mensagem de "Fornecedor cadastrado com sucesso!" deve ser exibida.
+
+2º cenário: Tentando cadastrar um fornecedor com CNPJ já existente
+
+Dado que estou na página de cadastro de fornecedores e já existe um fornecedor com o mesmo CNPJ no sistema, quando eu tentar cadastrar um novo fornecedor com esse CNPJ então o sistema não deve permitir o cadastro e uma mensagem de "Fornecedor com esse CNPJ já está cadastrado!" deve ser exibida.
+
+3º cenário: Tentando cadastrar um fornecedor com informações inválidas
+
+Dado que estou na página de cadastro de fornecedores, quando eu inserir informações inválidas ou deixar campos obrigatórios em branco e clicar no botão "Cadastrar" então o sistema não deve permitir o cadastro e mensagens de erro relevantes devem ser exibidas ao lado dos campos inválidos.
+
+Protótipo Descritivo: Tela de Cadastro de Fornecedor
+
+> Cabeçalho:
+
+Título: "Cadastro de Fornecedor"
+
+Botão de voltar ou fechar (caso esteja em um modal)
+
+> Formulário de Cadastro:
+
+Nome da Empresa (obrigatório):
+
+- Campo de texto
+
+- Placeholder: "Insira o nome da empresa"
+
+CNPJ (obrigatório):
+
+- Campo de texto formatado para CNPJ
+
+- Placeholder: "00.000.000/0000-00"
+
+Endereço (obrigatório):
+
+- Campo de texto longo
+
+- Placeholder: "Insira o endereço completo da empresa"
+
+Telefone (obrigatório):
+
+- Campo de texto formatado para números de telefone
+
+- Placeholder: "(00) 0000-0000"
+
+E-mail (obrigatório):
+
+- Campo de texto para e-mail
+
+- Placeholder: "exemplo@fornecedor.com"
+
+Contato Principal (obrigatório):
+
+- Campo de texto
+
+- Placeholder: "Nome do contato principal"
+
+--------------------------------------------------------------------------------------------------------------
+
+Feature: Cadastro de Produtos
+
+Como gerente de estoque, eu quero cadastrar produtos no sistema para que possa gerenciar e rastrear todas as informações relevantes sobre os produtos disponíveis no estoque.
+
+1º cenário: Cadastrando um novo produto com sucesso
+
+Dado que estou na página de cadastro de produtos e não existe um produto com o mesmo código de barras já cadastrado. quando eu inserir todas as informações válidas do produto e clicar no botão "Cadastrar" então o produto deve ser adicionado ao sistema e uma mensagem de "Produto cadastrado com sucesso!" deve ser exibida.
+
+2º cenário: Tentando cadastrar um produto com código de barras já existente
+
+Dado que estou na página de cadastro de produtos e já existe um produto com o mesmo código de barras no sistema, quando eu tentar cadastrar um novo produto com esse código de barras então o sistema não deve permitir o cadastro e uma mensagem de "Produto com este código de barras já está cadastrado!" deve ser exibida.
+
+3º cenário: Tentando cadastrar um produto com informações inválidas
+
+Dado que estou na página de cadastro de produtos, quando eu inserir informações inválidas ou deixar campos obrigatórios em branco e clicar no botão "Cadastrar" então o sistema não deve permitir o cadastro e mensagens de erro relevantes devem ser exibidas ao lado dos campos inválidos.
+
+Protótipo Descritivo: Tela de Cadastro de Produto
+
+> Cabeçalho:
+
+Título: "Cadastro de Produto"
+
+Botão de voltar ou fechar (caso esteja em um modal)
+
+> Formulário de Cadastro:
+
+Nome do Produto (obrigatório):
+
+- Campo de texto
+
+- Placeholder: "Insira o nome do produto"
+
+Código de Barras:
+
+- Campo de texto numérico
+
+- Placeholder: "Insira o código de barras"
+
+Descrição (obrigatório):
+
+- Campo de texto de várias linhas
+
+- Placeholder: "Descreva brevemente o produto"
+
+Quantidade em Estoque:
+
+- Campo de texto numérico
+
+- Placeholder: "Quantidade disponível"
+
+Categoria (obrigatório):
+
+- Menu suspenso (dropdown) com categorias pré-definidas, como "Eletrônicos", "Alimentos", "Vestuário", etc.
+
+- Opção "Outro" para especificar uma categoria não listada
+
+Data de Validade (se aplicável):
+
+- Campo de data
+
+- Placeholder: "Selecione a data de validade"
+
+Imagem do Produto (se aplicável):
+
+- Campo de upload de arquivo
+
+- Opção para carregar uma imagem representativa do produto
+
+--------------------------------------------------------------------------------------------------------------
+
+Feature: Associação de Fornecedor a Produto
+
+Como gerente de estoque, eu quero associar fornecedores aos produtos para que possa rastrear de quais fornecedores estou adquirindo produtos específicos e gerenciar melhor as relações de compra.
+
+1º cenário: Associando um fornecedor a um produto com sucesso
+
+Dado que estou na página de detalhes de um produto específico e tenho uma lista de fornecedores cadastrados, quando eu selecionar um fornecedor da lista e clicar no botão "Associar Fornecedor" então o fornecedor deve ser associado a esse produto e uma mensagem de "Fornecedor associado com sucesso ao produto!" deve ser exibida.
+
+2º cenário: Tentando associar um fornecedor que já está associado ao produto
+
+Dado que estou na página de detalhes de um produto específico e o fornecedor já está associado a este produto, quando eu tentar associar novamente o mesmo fornecedor então o sistema não deve permitir a ação e uma mensagem de "Fornecedor já está associado a este produto!" deve ser exibida.
+
+3º cenário: Desassociando um fornecedor de um produto
+
+Dado que estou na página de detalhes de um produto específico e o produto tem fornecedores associados, quando eu selecionar um fornecedor associado e clicar no botão "Desassociar Fornecedor" então o fornecedor deve ser desassociado do produto e uma mensagem de "Fornecedor desassociado com sucesso!" deve ser exibida.
+Protótipo Descritivo: Tela de Associação de Fornecedor a Produto
+
+> Cabeçalho:
+
+Título: "Associação de Fornecedor a Produto"
+
+Botão de voltar ou fechar (caso esteja em um modal)
+
+> Detalhes do Produto:
+
+Nome do Produto: Campo de texto somente leitura com o nome do produto
+
+Código de Barras: Campo de texto somente leitura com o código de barras
+
+Descrição: Campo de texto somente leitura com a descrição breve do produto
+
+Imagem do Produto (se aplicável): Miniatura da imagem do produto
+
+> Associação de Fornecedor:
+
+Seleção de Fornecedor:
+
+- Menu suspenso (dropdown) com a lista de fornecedores cadastrados
+
+- Placeholder: "Selecione um fornecedor"
+
+Botão "Associar Fornecedor": Para confirmar a associação do fornecedor selecionado ao produto
+
+> Fornecedores Associados:
+
+Lista ou tabela mostrando os fornecedores atualmente associados ao produto. Cada entrada da lista tem:
+
+- Nome do Fornecedor
+
+- CNPJ
+
+Botão "Desassociar": Permite remover a associação do fornecedor ao produto
